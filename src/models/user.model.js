@@ -32,7 +32,7 @@ userSchema.statics.encryptPassword = async(password)=>{
     return await bcrypt.hashSync(password, salt);
 }
 
-userSchema.static.comparePassword = async(password, receivedPassword)=>{
+userSchema.statics.comparePassword = async(password, receivedPassword)=>{
     return await bcrypt.compare(password, receivedPassword);
 }
 

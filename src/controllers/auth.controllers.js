@@ -5,8 +5,7 @@ import Role from "../models/Role.js";
 
 
 
-//Metodos de SIGNUP(Registrarse) y SIGNIN(Loguearse)
-
+//Metodo SIGNUP(Registrarse)
 export const signup = async(req, res)=>{
     const {username, email, password, roles} = req.body;
     const newUser = new User({
@@ -31,6 +30,22 @@ export const signup = async(req, res)=>{
     res.status(200).json({Message: "Usuario registrado con éxito", token});
 }
 
+//Metodo SIGNIN(Loguearse) - Login
+export const signin = async(req, res)=>{
+    const {email, password} = req.body;
+    try{
+        const user = await User.findOne({email});
+        //Verificamos el email
+        if(!user) return res.status(400).json({message: "El usuario no esta registrado"});
+        const verifiedPassword = await User.comparePassword(password, user.password);
+        //Verificamos la contraseña
+        if(!verifiedPassword) return res.status(400).json({message: "Contraseña incorrecta", token: null})
+        const token = jwt.sign({id: user._id}, settingSecretToken().secret, {expiresIn: "1h"});
+        res.status(200).json({message: "Usuario accedió exitosamente", token});
+    }catch(error){
+        return res.status(400).json({message: "Error en el inicio de sesión"}+ error);
+    }
+}
 
 
 
