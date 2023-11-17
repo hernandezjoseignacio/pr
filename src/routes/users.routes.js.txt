@@ -1,0 +1,38 @@
+// const routes = require("express").Router();
+// const {userController} =  require("../controllers/user.controllers");
+
+
+// //Rutas GET (Obtener)
+// routes.get("/user", userController.getAllUsers);
+// routes.get("/user/:userId", userController.getUserById);
+
+// //Rutas POST (Editar)
+// routes.post("/user/:userId", userController.createUser);
+
+// //Rutas PUT (Subir)
+// //Rutas DELETE (Eliminar)
+
+
+// module.exports = routes;
+
+//-----------------------------------------------------------------------------------------------------
+import { Router } from "express";
+import {userController} from "../controllers/user.controllers.js";
+
+
+const userRoutes = Router();
+
+userRoutes.get("/user", (req, res)=>{ res.send("¡Hola a todos, este es el sitio de usuarios!")});
+
+//Rutas GET (Obtener)
+userRoutes.get("/user", userController.getAllUsers);
+userRoutes.get("/user/:userId", userController.getUserById);
+
+//Rutas POST (Editar)
+userRoutes.post("/user/:userId", userController.createUser);
+
+//Rutas PUT (Subir)
+//Rutas DELETE (Eliminar)
+
+
+export {userRoutes};

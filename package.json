@@ -1,0 +1,23 @@
+{
+  "name": "proyectoprueba",
+  "version": "1.0.0",
+  "description": "![Logo Argentina Programa 4.0](https://www.argentina.gob.ar/sites/default/files/untitled-3-01_2.png)",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.0",
+    "nodemon": "^3.0.1"
+  }
+}

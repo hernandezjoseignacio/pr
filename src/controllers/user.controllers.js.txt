@@ -1,0 +1,38 @@
+// const userController = {};
+
+
+
+// userController.getAllUsers = (req, res)=>{
+//     res.send("Se buscan todos los usuarios");
+// }
+
+// userController.getUserById = (req, res)=>{
+//     res.send("Se buscan un usuarios por id");
+// }
+
+// userController.createUser = (req, res)=>{
+//     res.send("Se ha creado un usuario");
+// }
+
+// module.exports = {userController};
+
+//-----------------------------------------------------------------------------------------------------
+
+const userController = {};
+
+
+
+userController.getAllUsers = (req, res)=>{
+    res.send("Se buscan todos los usuarios");
+}
+
+userController.getUserById = (req, res)=>{
+    res.send("Se buscan un usuarios por id");
+}
+
+userController.createUser = (req, res)=>{
+    res.send("Se ha creado un usuario");
+}
+
+
+export { userController };
